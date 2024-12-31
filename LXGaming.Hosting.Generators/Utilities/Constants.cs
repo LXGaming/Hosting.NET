@@ -4,8 +4,8 @@
 
         public static class Types {
 
-            public const string ServiceAttribute = "LXGaming.Hosting.Attributes.ServiceAttribute";
-            public const string KeyedServiceAttribute = "LXGaming.Hosting.Attributes.KeyedServiceAttribute";
+            public const string ServiceAttribute = "LXGaming.Hosting.ServiceAttribute";
+            public const string KeyedServiceAttribute = "LXGaming.Hosting.KeyedServiceAttribute";
 
             public const string ServiceLifetime = "Microsoft.Extensions.DependencyInjection.ServiceLifetime";
             public const string ServiceLifetimeSingleton = ServiceLifetime + ".Singleton";

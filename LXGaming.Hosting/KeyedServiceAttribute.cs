@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LXGaming.Hosting.Attributes {
+namespace LXGaming.Hosting {
 
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class KeyedServiceAttribute : ServiceAttribute {
