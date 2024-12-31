@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LXGaming.Hosting", "LXGaming.Hosting\LXGaming.Hosting.csproj", "{AD79FA3C-5761-499B-949A-6FFE4323FDD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LXGaming.Hosting.Generators", "LXGaming.Hosting.Generators\LXGaming.Hosting.Generators.csproj", "{C0D1FD2C-341D-4F40-A507-BD55B4DBA1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LXGaming.Hosting.Reflection", "LXGaming.Hosting.Reflection\LXGaming.Hosting.Reflection.csproj", "{63C82A61-B1EE-44D5-AD9E-2E7C42B3030E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD79FA3C-5761-499B-949A-6FFE4323FDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD79FA3C-5761-499B-949A-6FFE4323FDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD79FA3C-5761-499B-949A-6FFE4323FDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD79FA3C-5761-499B-949A-6FFE4323FDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D1FD2C-341D-4F40-A507-BD55B4DBA1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D1FD2C-341D-4F40-A507-BD55B4DBA1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D1FD2C-341D-4F40-A507-BD55B4DBA1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D1FD2C-341D-4F40-A507-BD55B4DBA1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C82A61-B1EE-44D5-AD9E-2E7C42B3030E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C82A61-B1EE-44D5-AD9E-2E7C42B3030E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C82A61-B1EE-44D5-AD9E-2E7C42B3030E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C82A61-B1EE-44D5-AD9E-2E7C42B3030E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
