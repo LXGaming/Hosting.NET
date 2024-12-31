@@ -16,10 +16,10 @@ namespace LXGaming.Hosting.Generators {
 
         public void Initialize(IncrementalGeneratorInitializationContext context) {
             var serviceAttributes = context.SyntaxProvider.ForAttributeWithMetadataName(
-                "LXGaming.Hosting.Attributes.ServiceAttribute", Predicate, Transform).Collect();
+                Constants.Types.ServiceAttribute, Predicate, Transform).Collect();
 
             var keyedServiceAttributes = context.SyntaxProvider.ForAttributeWithMetadataName(
-                "LXGaming.Hosting.Attributes.KeyedServiceAttribute", Predicate, Transform).Collect();
+                Constants.Types.KeyedServiceAttribute, Predicate, Transform).Collect();
 
             var transformResults = serviceAttributes.Combine(keyedServiceAttributes).Select((tuple, _) => {
                 var list = new List<TransformResult>(tuple.Left.Length + tuple.Right.Length);
