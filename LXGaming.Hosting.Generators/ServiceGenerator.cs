@@ -188,7 +188,7 @@ namespace LXGaming.Hosting.Generators {
                 stringBuilder.AppendSource(Constants.Source.EndRegion);
             }
 
-            var source = StringUtils.Format(Constants.Source.ServiceExtensions, stringBuilder.ToString());
+            var source = StringUtils.Format(Constants.Source.ServiceExtensions, stringBuilder);
             context.AddSource("ServiceExtensions.g.cs", source);
         }
     }

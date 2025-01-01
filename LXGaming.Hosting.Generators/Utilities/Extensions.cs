@@ -7,7 +7,7 @@ namespace LXGaming.Hosting.Generators.Utilities {
 
     public static class Extensions {
 
-        public static void AppendSource(this StringBuilder stringBuilder, string format, params string[] args) {
+        public static void AppendSource(this StringBuilder stringBuilder, string format, params object?[] args) {
             using var stringReader = new StringReader(StringUtils.Format(format, args));
             while (stringReader.ReadLine() is { } line) {
                 stringBuilder.Append(Constants.Source.Indent);
