@@ -100,7 +100,7 @@ namespace LXGaming.Hosting.Generators {
                 attribute.AttributeClass.Name);
         }
 
-        private static void Generate(SourceProductionContext context, List<TransformResult> results) {
+        private void Generate(SourceProductionContext context, List<TransformResult> results) {
             var implementationTypes = new List<string>(results.Count);
             var stringBuilder = new StringBuilder();
 
@@ -188,7 +188,10 @@ namespace LXGaming.Hosting.Generators {
                 stringBuilder.AppendSource(Constants.Source.EndRegion);
             }
 
-            var source = StringUtils.Format(Constants.Source.ServiceExtensions, stringBuilder);
+            var assemblyName = GetType().Assembly.GetName();
+            var source = StringUtils.Format(Constants.Source.ServiceExtensions, stringBuilder,
+                assemblyName.Name, assemblyName.Version);
+
             context.AddSource("ServiceExtensions.g.cs", source);
         }
     }
