@@ -11,6 +11,7 @@
     <Product>Hosting Reflection</Product>
     <Copyright>© Alex Thomson. All rights reserved.</Copyright>
     <Title>Hosting Reflection</Title>
+    <Description>Reflection implementation for Hosting.NET</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/LXGaming/Hosting.NET</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
