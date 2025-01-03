@@ -24,7 +24,7 @@ using System.CodeDom.Compiler;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace LXGaming.Hosting {
+namespace LXGaming.Hosting.Generated {
 
     [GeneratedCode(""{1}"", ""{2}"")]
     internal static class ServiceExtensions {
