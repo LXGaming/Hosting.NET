@@ -9,10 +9,23 @@ namespace LXGaming.Hosting.Reflection {
 
     public static class ServiceExtensions {
 
+        /// <summary>
+        /// Adds all services specified in <paramref name="assembly"/> to the specified
+        /// <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to add the services to.</param>
+        /// <param name="assembly">The assembly to scan.</param>
+        /// <returns>The value of <paramref name="services"/>.</returns>
         public static IServiceCollection AddAllServices(this IServiceCollection services, Assembly assembly) {
             return services.AddAllServices(assembly.GetTypes().OrderBy(type => type.FullName));
         }
 
+        /// <summary>
+        /// Adds all services specified in <paramref name="types"/> to the specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to add the services to.</param>
+        /// <param name="types">The types of the services to add.</param>
+        /// <returns>The value of <paramref name="services"/>.</returns>
         public static IServiceCollection AddAllServices(this IServiceCollection services, IEnumerable<Type> types) {
             foreach (var type in types) {
                 if (IsValid(type) && IsService(type)) {
@@ -23,10 +36,35 @@ namespace LXGaming.Hosting.Reflection {
             return services;
         }
 
+        /// <summary>
+        /// Adds the service specified in <typeparamref name="TService"/> to the specified
+        /// <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to add the services to.</param>
+        /// <typeparam name="TService">The type of the service to add.</typeparam>
+        /// <returns>The value of <paramref name="services"/>.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the type of <typeparamref name="TService"/> is not a class or is abstract.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the type of <typeparamref name="TService"/> is missing a service attribute.
+        /// </exception>
         public static IServiceCollection AddService<TService>(this IServiceCollection services) where TService : class {
             return services.AddService(typeof(TService));
         }
 
+        /// <summary>
+        /// Adds the service specified in <paramref name="type"/> to the specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to add the services to.</param>
+        /// <param name="type">The type of the service to add.</param>
+        /// <returns>The value of <paramref name="services"/>.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the <paramref name="type"/> is not a class or is abstract.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the <paramref name="type"/> is missing a service attribute.
+        /// </exception>
         public static IServiceCollection AddService(this IServiceCollection services, Type type) {
             if (!IsValid(type)) {
                 throw new ArgumentException($"'{type.FullName}' is not valid.", nameof(type));

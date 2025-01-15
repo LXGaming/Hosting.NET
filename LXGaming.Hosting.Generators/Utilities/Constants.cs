@@ -29,6 +29,11 @@ namespace LXGaming.Hosting.Generated {
     [GeneratedCode(""{1}"", ""{2}"")]
     internal static class ServiceExtensions {
 
+        /// <summary>
+        /// Adds all services to the specified <see cref=""IServiceCollection""/>.
+        /// </summary>
+        /// <param name=""services"">The service collection to add the services to.</param>
+        /// <returns>The value of <paramref name=""services""/>.</returns>
         public static IServiceCollection AddAllServices(this IServiceCollection services) {
 {0}
             return services;
