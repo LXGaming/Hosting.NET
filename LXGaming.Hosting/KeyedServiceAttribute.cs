@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
+#if NET8_0_OR_GREATER
 namespace LXGaming.Hosting {
 
     /// <summary>
@@ -25,3 +26,4 @@ namespace LXGaming.Hosting {
         }
     }
 }
+#endif

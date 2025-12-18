@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
@@ -88,6 +89,7 @@ namespace LXGaming.Hosting.Reflection {
             }
 
             var serviceAttribute = serviceAttributes.Single();
+#if NET8_0_OR_GREATER
             if (serviceAttribute is KeyedServiceAttribute keyedServiceAttribute) {
                 var lifetime = keyedServiceAttribute.Lifetime;
                 var serviceKey = keyedServiceAttribute.Key;
@@ -112,7 +114,10 @@ namespace LXGaming.Hosting.Reflection {
                     services.Add(new ServiceDescriptor(serviceType, serviceKey,
                         (provider, key) => provider.GetRequiredKeyedService(type, key), lifetime));
                 }
-            } else {
+            }
+            else
+#endif
+            {
                 var lifetime = serviceAttribute.Lifetime;
                 var serviceType = serviceAttribute.Type;
 
@@ -145,6 +150,7 @@ namespace LXGaming.Hosting.Reflection {
                 .AddSingleton(typeof(IHostedService), provider => provider.GetRequiredService(type));
         }
 
+#if NET8_0_OR_GREATER
         private static IServiceCollection AddKeyedHostedService(this IServiceCollection services, Type type,
             object? serviceKey) {
             return services
@@ -152,6 +158,7 @@ namespace LXGaming.Hosting.Reflection {
                 .AddKeyedSingleton(typeof(IHostedService), serviceKey,
                     (provider, key) => provider.GetRequiredKeyedService(type, key));
         }
+#endif
 
         private static ServiceAttribute[] GetServiceAttributes(Type type) {
             return type.GetCustomAttributes(false)
@@ -164,9 +171,19 @@ namespace LXGaming.Hosting.Reflection {
             return typeof(IHostedService).IsAssignableFrom(type);
         }
 
+        [SuppressMessage("ReSharper", "ConvertIfStatementToReturnStatement")]
         private static bool IsService(Type type) {
-            return type.IsDefined(typeof(ServiceAttribute), false)
-                   || type.IsDefined(typeof(KeyedServiceAttribute), false);
+            if (type.IsDefined(typeof(ServiceAttribute), false)) {
+                return true;
+            }
+
+#if NET8_0_OR_GREATER
+            if (type.IsDefined(typeof(KeyedServiceAttribute), false)) {
+                return true;
+            }
+#endif
+
+            return false;
         }
 
         private static bool IsValid(Type type) {
