@@ -1,4 +1,4 @@
-﻿namespace LXGaming.Hosting.Generators.Utilities {
+namespace LXGaming.Hosting.Generators.Utilities {
 
     public static class Constants {
 

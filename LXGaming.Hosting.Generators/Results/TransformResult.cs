@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using LXGaming.Hosting.Generators.Models;
 using Microsoft.CodeAnalysis;
 
